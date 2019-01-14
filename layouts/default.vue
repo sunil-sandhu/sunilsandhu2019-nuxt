@@ -48,17 +48,33 @@ export default {
   methods: {
       toggleButton() {
           if(! this.darkMode) {
-              this.darkMode = true;
-              this.togglePosition = 24;
-              this.bgColor = 'black';
-              this.titleColor = 'grey'
+              this.activateDarkMode();
           } else {
-              this.darkMode = false;
-              this.togglePosition = 0;
-              this.bgColor = 'white';
-              this.titleColor = 'black';
+              this.activateLightMode();
           }
-      }
+      },
+
+      activateDarkMode() {
+          this.darkMode = true;
+          this.darkModeProperties();
+      },
+
+      activateLightMode() {
+          this.darkMode = false;
+          this.lightModeProperties();
+      },
+
+      darkModeProperties() {
+          this.togglePosition = 24;
+          this.bgColor = 'black';
+          this.titleColor = 'grey'
+      },
+
+      lightModeProperties() {
+          this.togglePosition = 0;
+          this.bgColor = 'white';
+          this.titleColor = 'black';
+      },
   },
 
   mounted() {
