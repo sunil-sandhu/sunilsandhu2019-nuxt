@@ -3,7 +3,7 @@
   <div class="content">
 
 
-      <h2 class="title">developer and <br/>
+      <h2 class="tagline">developer and <br/>
         human-centric designer </h2>
       <nuxt-link to="/about" class="learn-more">learn more</nuxt-link>
 

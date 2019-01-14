@@ -4,14 +4,16 @@
     <nuxt-link to="/">back</nuxt-link>
 
     <div class="text-container">
-    <h2>i am a digital creator, working at the intersection between front and back-end development, ux, and human-centred design.
-    </h2>
-    <h3>
-      i am the editor of javascript in plain english, a publication that focuses on making javascript more accessible.
-    </h3>
-    <h4>
-      i currently work as a full-stack developer for instinct laboratory, a behavioural psychology-led design agency in the uk.
-    </h4>
+
+    <div v-for="item in media">
+      <p class="format">{{item.format}}</p>
+      <a class="title" :href="item.link" target="_blank">{{item.title}}</a>
+      <p class="medium">{{item.medium}}</p>
+      <p class="year">{{item.year}}</p>
+    </div>
+
+
+
     </div>
 
 
@@ -24,6 +26,14 @@
         data() {
             return {
                 color: 'blue',
+                media: [
+                    {
+                        format: 'article',
+                        title: 'the 2019 web developer roadmap',
+                        medium: 'medium',
+                        link: 'https://medium.com/@sunilsandhu/the-web-developer-roadmap-for-2019-692cb02d36a4'
+                    },
+                ]
             }
         },
 
@@ -41,12 +51,21 @@
 
 <style scoped>
 
+.title {
+  font-size: 1.5em;
+  color: #646464;
+}
 
-h2, h3, h4 {
-  font-size: 1.3em;
-  margin: 15px 0;
-  font-weight: 300;
-  text-align: left;
+.format {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #C3BFBF;
+}
+
+.medium {
+  font-size: 1.25em;
+  color: #9D9D9D;
+
 }
 
 </style>

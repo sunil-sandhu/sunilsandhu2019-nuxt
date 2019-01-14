@@ -3,7 +3,7 @@
 
     <div class="button" @click="this.toggleButton">
       <div class="button-inner">
-        <div class="button-toggle" :style="'left:' + togglePosition + 'px'"></div>
+        <div class="button-toggle" :style="'left:' + togglePosition + 'px' + '; background-color:' + toggleButtonColor + ';'"></div>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
 
 
     <div class="col-2">
-      <div class="colored-box" :style="'background-color:' + this.color"></div>
+      <div class="colored-box" :style="'background-color:' + this.boxColor"></div>
     </div>
 
   </section>
@@ -30,15 +30,18 @@ export default {
   data() {
     return {
       page: 'index',
-      color: 'red',
+      boxColor: '#98EFBD',
       togglePosition: 0,
       darkMode: false,
+      toggleButtonColor: '#ACADAD',
       bgColor: 'white',
       titleColor: 'black',
+      currentPage: '',
     }
   },
 
   computed: {
+
   },
 
   components: {
@@ -46,6 +49,9 @@ export default {
   },
 
   methods: {
+
+
+
       toggleButton() {
           if(! this.darkMode) {
               this.activateDarkMode();
@@ -65,21 +71,33 @@ export default {
       },
 
       darkModeProperties() {
-          this.togglePosition = 24;
+          this.togglePosition = 20;
           this.bgColor = 'black';
-          this.titleColor = 'grey'
+          this.titleColor = 'grey';
+          this.boxColor = '#175A5A';
+//          this.toggleButtonColor = '#175A5A';
       },
 
       lightModeProperties() {
           this.togglePosition = 0;
           this.bgColor = 'white';
           this.titleColor = 'black';
+          this.boxColor = '#98EFBD';
+//          this.toggleButtonColor = '#ACADAD';
       },
+
+      isItLate() {
+          if(new Date().getHours() > 20) {
+              return this.activateDarkMode();
+          }
+      }
   },
 
-  mounted() {
+  created() {
+      this.isItLate();
 
-  }
+  },
+
 
 }
 
@@ -142,9 +160,9 @@ html {
 
 .button {
   position: absolute;
-  top: 100px;
-  left: 100px;
-  border: 1px solid black;
+  top: 50px;
+  left: 50px;
+  border: 1px solid darkgrey;
   width: 60px;
   height: 30px;
   border-radius: 15px;
@@ -161,15 +179,15 @@ html {
   border-radius: 15px;
   display: flex;
   align-items: center;
+  background-color: #D3D3D3;
 }
 
 .button-toggle {
   position: absolute;
-  width: 30px;
+  width: 34px;
   height: 24px;
   top: 0;
-  border: 1px solid black;
-  background-color: lightgray;
+  border: 1px solid #707070;
   border-radius: 15px;
   transition: all 350ms;
 }
@@ -179,12 +197,13 @@ nuxt-link {
 
 .big {
   font-size: 1.5em;
+  color: #4B4B4B;
 }
 
 a {
   text-decoration: underline;
   text-align: left;
-  color: black;
+  color: #707070;
 }
 
 .name {
@@ -196,18 +215,25 @@ a {
 
 h1 {
   font-size: 3em;
+  color: #343434;
 }
 
 h2 {
   font-size: 2em;
+  color: #646464;
 }
 
-.title {
+.tagline {
   margin-bottom: 10px;
 }
 
 .learn-more {
   margin-bottom: 100px;
+
+}
+
+.text-container {
+  padding-right: 100px;
 }
 
 .colored-box {

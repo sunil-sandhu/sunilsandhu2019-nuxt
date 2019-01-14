@@ -33,8 +33,9 @@
   h2, h3, h4 {
     font-size: 1.3em;
     margin: 15px 0;
-    font-weight: 300;
+    font-weight: 500;
     text-align: left;
+    color: #646464;
   }
 
 </style>
