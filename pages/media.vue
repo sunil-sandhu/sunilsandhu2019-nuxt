@@ -1,7 +1,6 @@
 <template>
-  <div class="content">
+  <div>
 
-    <nuxt-link to="/">back</nuxt-link>
 
     <div class="text-container">
 
@@ -54,6 +53,7 @@
 .title {
   font-size: 1.5em;
   color: #646464;
+  word-spacing: -0.04em;
 }
 
 .format {

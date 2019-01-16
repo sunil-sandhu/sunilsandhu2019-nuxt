@@ -1,10 +1,9 @@
 <template>
-  <div class="content">
+  <div>
 
-    <nuxt-link to="/">back</nuxt-link>
 
     <div class="text-container">
-      <h2>i am a digital creator, working at the intersection between front and back-end development, ux, and human-centred design.
+      <h2>i am a digital creator, located at the intersection between full-stack development, user experience design, and human-centred design.
       </h2>
       <h3>
         i am the editor of javascript in plain english, a publication that focuses on making javascript more accessible.
@@ -13,8 +12,6 @@
         i currently work as a full-stack developer for instinct laboratory, a behavioural psychology-led design agency in the uk.
       </h4>
     </div>
-
-    <nuxt-link to="/media" class="big">media</nuxt-link>
 
   </div>
 </template>
@@ -36,6 +33,7 @@
     font-weight: 500;
     text-align: left;
     color: #646464;
+    word-spacing: -0.04em;
   }
 
 </style>

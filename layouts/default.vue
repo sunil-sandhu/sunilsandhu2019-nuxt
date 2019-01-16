@@ -1,20 +1,36 @@
 <template>
   <section class="container" :style="'background-color:' + bgColor + ''">
 
-    <div class="button" @click="this.toggleButton">
-      <div class="button-inner">
-        <div class="button-toggle" :style="'left:' + togglePosition + 'px' + '; background-color:' + toggleButtonColor + ';'"></div>
-      </div>
+
+
+    <div class="sidebar">
+      <h1 class="name" :style="'color:' + this.titleColor">sunil sandhu</h1>
     </div>
 
-    <div class="col-2 padded-bottom">
+    <div class="col-2">
 
-      <div class="sidebar">
-        <h1 class="name" :style="'color:' + this.titleColor">sunil sandhu</h1>
+      <div class="button" @click="this.toggleButton">
+        <div class="button-inner">
+          <div class="button-toggle" :style="'left:' + togglePosition + 'px' + '; background-color:' + toggleButtonColor + ';'"></div>
+        </div>
+      </div>
+
+      <Navigation/>
+
+
+
+      <div class="page-container">
+
+      <div class="content">
+
+      <nuxt/>
+
+      </div>
+
       </div>
 
 
-      <nuxt/>
+
     </div>
 
 
@@ -26,6 +42,8 @@
 </template>
 
 <script>
+import Navigation from '../components/Navigation.vue';
+
 export default {
   data() {
     return {
@@ -45,7 +63,7 @@ export default {
   },
 
   components: {
-
+    Navigation
   },
 
   methods: {
@@ -129,17 +147,23 @@ html {
 .container {
   min-height: 100vh;
   display: flex;
-  justify-content: left;
+  /* justify-content: left; */
   align-items: flex-end;
-  text-align: left;
-  width: 100%;
-  padding: 10px;
-  transition: all 350ms;
+  /* text-align: left; */
+  /* width: 100%; */
+  /* padding: 10px; */
+   transition: all 350ms;
 }
 
 .sidebar {
-  width: 100px;
+  /*width: 100px;*/
   margin-left: 40px;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /*height: calc(100vh - 20px);*/
+  /* padding-top: 10%; */
+  padding-bottom: 34px;
 }
 
 .padded-bottom {
@@ -148,20 +172,23 @@ html {
 
 .col-2 {
   width: 50%;
+  flex-flow: column;
   display: flex;
-  align-items: flex-end;
+  /*align-items: flex-end;*/
 }
 
 .content {
   display: flex;
   flex-flow: column;
   padding: 0 20px;
+  justify-content: space-between;
 }
 
 .button {
+  cursor: pointer;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 20px;
+  left: 20px;
   border: 1px solid darkgrey;
   width: 60px;
   height: 30px;
@@ -172,6 +199,7 @@ html {
 }
 
 .button-inner {
+  cursor: pointer;
   position: relative;
   width: 56px;
   height: 26px;
@@ -183,6 +211,7 @@ html {
 }
 
 .button-toggle {
+  cursor: pointer;
   position: absolute;
   width: 34px;
   height: 24px;
@@ -192,8 +221,13 @@ html {
   transition: all 350ms;
 }
 
-nuxt-link {
+.page-container {
+  height: calc(100vh - 30px);
+  display: flex;
+  align-items: center;
+
 }
+
 
 .big {
   font-size: 1.5em;
@@ -201,13 +235,14 @@ nuxt-link {
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: none;
   text-align: left;
   color: #707070;
+  cursor: pointer;
 }
 
 .name {
-  margin-top: 100px;
+  /*margin-top: 100px;*/
   text-orientation: sideways;
   writing-mode: vertical-rl;
   transform: rotate(-180deg);
@@ -238,7 +273,7 @@ h2 {
 
 .colored-box {
   width: 100%;
-  height: calc(100vh - 20px);
+  height: 100vh;
   height: -webkit-fill-available;
   transition: all 500ms;
 }
