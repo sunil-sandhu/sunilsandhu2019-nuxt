@@ -4,9 +4,9 @@
 
     <div class="text-container">
 
-    <div v-for="item in media">
+    <div v-for="item in media" :key="item.id">
       <p class="format">{{item.format}}</p>
-      <a class="title" :href="item.link" target="_blank">{{item.title}}</a>
+      <a class="title" :href="item.href" target="_blank">{{item.title}}</a>
       <p class="medium">{{item.medium}}</p>
       <p class="year">{{item.year}}</p>
     </div>
@@ -21,20 +21,23 @@
 
 
 <script>
+  import axios from 'axios';
+
+
     export default {
         data() {
             return {
                 color: 'blue',
-                media: [
-                    {
-                        format: 'article',
-                        title: 'the 2019 web developer roadmap',
-                        medium: 'medium',
-                        link: 'https://medium.com/@sunilsandhu/the-web-developer-roadmap-for-2019-692cb02d36a4'
-                    },
-                ]
             }
         },
+
+        async asyncData() {
+            const res = await axios.get('https://sunilsandhu-47c54.firebaseio.com/media.json');
+            const media = res.data;
+            return {media};
+
+        },
+
 
         components: {
 
@@ -65,7 +68,11 @@
 .medium {
   font-size: 1.25em;
   color: #9D9D9D;
+}
 
+.year {
+  color: #553b3b;
+  font-size: 0.9em;
 }
 
 </style>

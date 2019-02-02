@@ -14,8 +14,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: "https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500", rel: "stylesheet" }
+    ],
   },
 
   /*
@@ -39,6 +40,10 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+      // Simple usage
+      ['@nuxtjs/google-analytics', {
+          id: 'UA-90550674-1'
+      }]
   ],
 
   /*
