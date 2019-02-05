@@ -1,22 +1,19 @@
 <template>
-  <div>
-
-
     <div class="text-container">
 
-    <div v-for="item in media" :key="item.id">
-      <p class="format">{{item.format}}</p>
-      <a class="title" :href="item.href" target="_blank">{{item.title}}</a>
-      <p class="medium">{{item.medium}}</p>
-      <p class="year">{{item.year}}</p>
+        <div v-for="item in media" :key="item.id">
+
+          <p class="format">{{item.format}}</p>
+
+          <a class="title" :href="item.href" target="_blank">{{item.title}}</a>
+
+          <p class="medium">{{item.medium}}</p>
+
+          <p class="year">{{item.year}}</p>
+
+        </div>
+
     </div>
-
-
-
-    </div>
-
-
-  </div>
 </template>
 
 
@@ -33,7 +30,9 @@
 
         async asyncData() {
             const res = await axios.get('https://sunilsandhu-47c54.firebaseio.com/media.json');
-            const media = res.data;
+
+            // turn object of objects into array of objects, then reverse in order to show media in reverse chronological order
+            const media = Object.values(res.data).reverse();
             return {media};
 
         },

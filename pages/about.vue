@@ -1,23 +1,21 @@
 <template>
-  <div>
-
-
     <div class="text-container">
-      <p>i am a digital creator, located at the intersection between full-stack development, user experience design, and human-centred design.
-      </p>
-      <p>
-        i am the editor of javascript in plain english, a publication that focuses on making javascript more accessible.
-      </p>
-      <p>
-        i currently work as a full-stack developer for instinct laboratory, a behavioural psychology-led design agency in the uk.
-      </p>
-      <p>feel free to reach out to me on any of the following channels:</p>
-      <a href="https://www.linkedin.com/in/sunilsandhu/">linkedin</a>
-      <a href="mailto:hello@sunilsandhu.com">email</a>
-      <a href="https://twitter.com/sunilsandhu">twitter</a>
-    </div>
 
-  </div>
+        <p><strong>a digital creator</strong>, located at the intersection between full-stack development, user experience, and interface design.</p>
+
+        <p><strong>editor of javascript in plain english (jsipe)</strong>, a publication focused on lowering the barrier to entry for learning javascript.</p>
+
+        <p><strong>currently working as a full-stack developer</strong> for instinct laboratory, a behavioural psychology-led research and design agency in the uk.</p>
+
+        <p><strong>reach out to me on</strong>:</p>
+
+        <a href="https://www.linkedin.com/in/sunilsandhu">linkedin</a>
+
+        <a href="mailto:hello@sunilsandhu.com">email</a>
+
+        <a href="https://twitter.com/sunilsandhu">twitter</a>
+
+    </div>
 </template>
 
 <script>
@@ -32,7 +30,7 @@
 <style scoped>
 
   h2, h3, h4, h5, p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin: 15px 0;
     margin-bottom: 0.5em;
     text-align: left;

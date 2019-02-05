@@ -1,37 +1,37 @@
 <template>
   <section class="container" :style="'background-color:' + bgColor + ''">
 
-    <div class="left-side padded-left">
+    <div class="left-side">
 
-      <div class="button" @click="this.toggleButton">
-        <div class="button-inner" :style="'box-shadow:' + toggleButtonBoxShadow + ';'">
-          <div class="button-toggle" :style="'left:' + togglePosition + 'px' + '; background-color:' + toggleButtonColor + ';'"></div>
-        </div>
+      <div class="navigation">
+
+        <ToggleButton
+                @toggle="toggleButton()"
+                :togglePosition="this.togglePosition"
+                :toggleButtonColor="this.toggleButtonColor"
+                :toggleButtonBoxShadow="this.toggleButtonBoxShadow">
+        </ToggleButton>
+
+
+        <Navigation :linkColor="this.linkColor"></Navigation>
+
       </div>
 
-      <Navigation :linkColor="this.linkColor"/>
-
-
-
-      <div class="page-container">
 
       <div class="content">
 
-
-
-      <nuxt />
+          <nuxt />
 
       </div>
-
-      </div>
-
 
 
     </div>
 
 
     <div class="right-side">
+
       <div class="colored-box" :style="'background-color:' + this.boxColor"></div>
+
     </div>
 
   </section>
@@ -39,14 +39,15 @@
 
 <script>
 import Navigation from '../components/Navigation.vue';
+import ToggleButton from '../components/ToggleButton.vue';
 
 export default {
   data() {
     return {
       page: 'index',
+      darkMode: false,
       boxColor: '#98EFBD',
       togglePosition: 1,
-      darkMode: false,
 //      toggleButtonColor: '#ACADAD',
       toggleButtonColor: '#ea7e7e',
       toggleButtonBoxShadow: '1px 1px 1px #D3D3D3',
@@ -64,7 +65,7 @@ export default {
   },
 
   components: {
-    Navigation
+    Navigation, ToggleButton
   },
 
   methods: {
@@ -156,7 +157,6 @@ html {
 
 
 .container {
-  min-height: 100vh;
   display: flex;
   /* justify-content: left; */
   align-items: flex-end;
@@ -190,6 +190,7 @@ html {
 
 
 .left-side {
+  height: 100vh;
   position: relative;
   width: 60%;
   flex-flow: column;
@@ -198,9 +199,11 @@ html {
 }
 
 .right-side {
+  height: 100vh;
   width: 40%;
   flex-flow: column;
   display: flex;
+  transition: all 500ms;
   /*align-items: flex-end;*/
 }
 
@@ -209,54 +212,17 @@ html {
 }
 
 .content {
-  display: flex;
-  flex-flow: column;
-  /*padding: 0 20px;*/
-  justify-content: space-between;
-}
-
-.button {
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  /*border: 1px solid rgba(169, 169, 169, 0.5);*/
-  width: 46px;
-  height: 28px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button-inner {
-  cursor: pointer;
-  position: relative;
-  width: 42px;
-  height: 24px;
-  border: 1px solid #2e2e2e;
-  border-radius: 15px;
+  /*height: calc(100vh - 30px);*/
   display: flex;
   align-items: center;
-  /*background-color: #D3D3D3;*/
-  transition: all 400ms;
-  box-shadow: 1px 1px 1px #D3D3D3;
-}
-
-.button-toggle {
-  cursor: pointer;
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 1px;
-  border: 1px solid #2e2e2e;
-  /*box-shadow: 1px 1px 1px rgb(175, 173, 173);*/
-  border-radius: 15px;
-  transition: all 200ms;
+  flex: 1;
+  padding-left: 100px;
 }
 
 .navigation {
   display: flex;
+  height: 80px;
+  align-items: center;
   /*padding-left: 80px;*/
 }
 
@@ -267,12 +233,6 @@ html {
   font-size: 18px;
 }
 
-.page-container {
-  height: calc(100vh - 30px);
-  display: flex;
-  align-items: center;
-
-}
 
 
 .big {
@@ -336,15 +296,17 @@ h2 {
 
 .text-container {
   padding-right: 60px;
-  max-height: 600px;
+  max-height: 80vh;
   overflow-x: scroll;
   max-width: 500px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .colored-box {
   width: 100%;
   height: 100vh;
-  height: -webkit-fill-available;
+  /*height: -webkit-fill-available;*/
   transition: all 350ms;
 }
 
@@ -413,19 +375,35 @@ h2 {
 }
 /*TRANSITIONS END*/
 
-
-
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 999px) {
 
   .left-side {
-    width: 70%;
+    width: calc(100% - 200px);
     flex-flow: column;
     display: flex;
     /*align-items: flex-end;*/
   }
 
   .right-side {
-    width: 30%;
+    width: 200px;
+    flex-flow: column;
+    display: flex;
+    /*align-items: flex-end;*/
+  }
+}
+
+
+@media only screen and (max-width: 799px) {
+
+  .left-side {
+    width: calc(100% - 80px);
+    flex-flow: column;
+    display: flex;
+    /*align-items: flex-end;*/
+  }
+
+  .right-side {
+    width: 80px;
     flex-flow: column;
     display: flex;
     /*align-items: flex-end;*/
@@ -433,11 +411,6 @@ h2 {
 
   .padded-left {
     padding-left: 50px;
-  }
-
-  .button {
-    left: unset;
-    right: 20px;
   }
 
 }
@@ -470,18 +443,14 @@ h2 {
     padding-left: 0;
   }
 
-  .button {
-    left: unset;
-    right: 20px;
-  }
 
   .text-container {
-    padding: 0 20px 40px 20px;
+    padding: 20px 20px 60px 0px;
   }
 
   .navigation {
-    padding-left: 20px;
-    background-color: rgb(239, 239, 239);
+    padding-left: 10px;
+    /*background-color: ;*/
     height: 60px;
     border-bottom: 1px solid grey;
   }
@@ -490,19 +459,13 @@ h2 {
     padding-top: 18px;
   }
 
-  .page-container {
-    /*height: unset;*/
-  }
 
   .button {
-    top: 16px;
+    margin-left: 10px;
   }
 
   .content {
-    display: unset;
-    flex-flow: unset;
-    padding: unset;
-    justify-content: unset;
+    padding-left: 20px;
   }
 
 }
