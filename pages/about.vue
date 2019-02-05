@@ -1,11 +1,13 @@
 <template>
     <div class="text-container">
 
-        <p><strong>a digital creator</strong>, located at the intersection between full-stack development, user experience, and interface design.</p>
+        <h1 class="name">about</h1>
 
-        <p><strong>editor of javascript in plain english (jsipe)</strong>, a publication focused on lowering the barrier to entry for learning javascript.</p>
+        <p>i am <strong>a digital creator</strong>, located at the intersection between full-stack development, user experience, and interface design.</p>
 
-        <p><strong>currently working as a full-stack developer</strong> for instinct laboratory, a behavioural psychology-led research and design agency in the uk.</p>
+        <p>i am <strong>editor of javascript in plain english (jsipe)</strong>, a publication focused on lowering the barrier to entry for learning javascript.</p>
+
+        <p>i am <strong>currently working as a full-stack developer</strong> for instinct laboratory, a behavioural psychology-led research and design agency in the uk.</p>
 
         <p><strong>reach out to me on</strong>:</p>
 

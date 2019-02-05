@@ -299,7 +299,7 @@ h2 {
   max-height: 80vh;
   overflow-x: scroll;
   max-width: 500px;
-  padding-top: 60px;
+  /*padding-top: 60px;*/
   padding-bottom: 60px;
 }
 

@@ -1,6 +1,8 @@
 <template>
     <div class="text-container">
 
+
+      <h1 class="name">media</h1>
         <div v-for="item in media" :key="item.id">
 
           <p class="format">{{item.format}}</p>
