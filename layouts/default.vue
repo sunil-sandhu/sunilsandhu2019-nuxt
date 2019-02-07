@@ -1,52 +1,49 @@
 <template>
   <section class="container" :style="'background-color:' + bgColor + ''">
 
-    <div class="left-side">
+    <!--<div class="left-side">-->
 
-      <div class="navigation">
+
 
         <ToggleButton
                 @toggle="toggleButton()"
                 :togglePosition="this.togglePosition"
                 :toggleButtonColor="this.toggleButtonColor"
-                :toggleButtonBoxShadow="this.toggleButtonBoxShadow">
+                :toggleButtonBoxShadow="this.toggleButtonBoxShadow"
+        >
         </ToggleButton>
 
 
         <Navigation :linkColor="this.linkColor" :navBackgroundColor="this.navBackgroundColor"></Navigation>
 
-      </div>
 
-      <div class="content">
+      <nuxt />
 
-          <nuxt />
 
-      </div>
+      <!--<div class="footer-links">-->
+        <!--<p style="color: #646464">connect with me</p>-->
 
-      <div class="footer-links">
-        <p style="color: #646464">connect with me</p>
+        <!--&lt;!&ndash;<a href="https://www.linkedin.com/in/sunilsandhu">linkedin</a>&ndash;&gt;-->
 
-        <!--<a href="https://www.linkedin.com/in/sunilsandhu">linkedin</a>-->
+        <!--<a href="mailto:hello@sunilsandhu.com">email</a>-->
 
-        <a href="mailto:hello@sunilsandhu.com">email</a>
+        <!--<a href="https://twitter.com/sunilsandhu">twitter</a>-->
 
-        <a href="https://twitter.com/sunilsandhu">twitter</a>
+        <!--<a href="https://instagram.com/sunilsandhu">instagram</a>-->
 
-        <a href="https://instagram.com/sunilsandhu">instagram</a>
-
-        <a href="https://medium.com/@sunilsandhu">medium</a>
-      </div>
+        <!--<a href="https://medium.com/@sunilsandhu">medium</a>-->
+      <!--</div>-->
 
 
 
-    </div>
+    <!--</div>-->
 
 
-    <div class="right-side">
+    <!--<div class="right-side">-->
 
-      <div class="colored-box" :style="'background-color:' + this.boxColor"></div>
+      <!--<div class="colored-box" :style="'background-color:' + this.boxColor"></div>-->
 
-    </div>
+    <!--</div>-->
 
   </section>
 </template>
@@ -178,11 +175,12 @@ html {
 .container {
   display: flex;
   /* justify-content: left; */
-  align-items: flex-end;
+  align-items: center;
   /* text-align: left; */
-  /* width: 100%; */
+  width: 100%;
   /* padding: 10px; */
-   transition: all 350ms;
+  transition: all 350ms;
+  /*height: 100vh;*/
 }
 
 .sidebar {
@@ -231,27 +229,15 @@ html {
 }
 
 .content {
-  /*height: calc(100vh - 30px);*/
+  max-width: 500px;
   display: flex;
-  align-items: center;
   flex: 1;
   padding-left: 100px;
+  flex-flow: column;
+  justify-content: center;
+  height: 100vh;
 }
 
-.navigation {
-  display: flex;
-  height: 80px;
-  align-items: center;
-  transition: all 300ms;
-  /*padding-left: 80px;*/
-}
-
-.navigation a {
-  height: 30px;
-  padding-top: 22px;
-  margin-right: 20px;
-  font-size: 18px;
-}
 
 a {
   transition: all 350ms;
@@ -270,9 +256,11 @@ a:hover {
   display: flex;
   flex-flow: row;
   width: 100%;
-  height: 80px;
+  height: 40px;
   align-items: center;
   margin-left: 100px;
+  position: absolute;
+  bottom: 0;
   /*max-width: 500px;*/
 }
 
@@ -330,11 +318,12 @@ h2 {
 }
 
 .tagline {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 
-.learn-more {
-  margin-bottom: 100px;
+.button {
+  margin-top: 10px;
+  /*margin-bottom: 100px;*/
   /*opacity: 0;*/
   animation: colorfulFadeIn 3s linear 1.3s forwards;
   color: #606060;
@@ -344,6 +333,9 @@ h2 {
   border-radius: 6px;
   transition: all 400ms;
   box-shadow: 1px 1px 1px #2e2e2e;
+  text-align: center;
+  width: 110px;
+  width: fit-content;
 }
 
 .learn-more:hover {
@@ -354,11 +346,11 @@ h2 {
 
 .text-container {
   padding-right: 60px;
-  max-height: 70vh;
+  /*max-height: 70vh;*/
   overflow-x: scroll;
   max-width: 500px;
   /*padding-top: 60px;*/
-  padding-bottom: 60px;
+  /*padding-bottom: 60px;*/
 }
 
 .colored-box {
@@ -366,6 +358,7 @@ h2 {
   height: 100vh;
   /*height: -webkit-fill-available;*/
   transition: all 350ms;
+  position: fixed;
 }
 
 
@@ -521,35 +514,20 @@ h2 {
     margin-top: 20px;
   }
 
-  .navigation {
-    padding-left: 10px;
-    /*background-color: ;*/
-    height: 50px;
-    /*border-bottom: 1px solid grey;*/
-    box-shadow: 0px 1px 5px rgba(128, 128, 128, 0.2);
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-    /*background-color: white;*/
-  }
-
-  .navigation a {
-    padding-top: 18px;
-  }
 
 
-  .button {
-    margin-left: 10px;
-  }
+
 
   .content {
+    width: initial;
+    padding-right: 20px;
     padding-left: 20px;
     position: relative;
     z-index: 1;
   }
 
   .footer-links {
-    height: 40px;
+
     padding-left: 20px;
     padding-right: 10px;
     margin-left: initial;

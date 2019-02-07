@@ -1,5 +1,5 @@
 <template>
-    <div class="button" @click="emit('toggle')">
+    <div class="toggle-button-container" @click="emit('toggle')">
         <div class="button-inner" :style="'box-shadow:' + toggleButtonBoxShadow + ';'">
             <div class="button-toggle" :style="'left:' + togglePosition + 'px' + '; background-color:' + toggleButtonColor + ';'"></div>
         </div>
@@ -26,10 +26,10 @@
 </script>
 
 <style>
-    .button {
+    .toggle-button-container {
         cursor: pointer;
-        /* position: absolute; */
-        /* top: 20px; */
+        position: absolute;
+         top: 18px;
         /* left: 20px; */
         /* border: 1px solid rgba(169, 169, 169, 0.5); */
         /* width: 46px; */
@@ -40,6 +40,7 @@
         /* align-items: center; */
         margin-right: 28px;
         margin-left: 28px;
+        z-index: 2;
     }
 
     .button-inner {
@@ -66,5 +67,16 @@
         /*box-shadow: 1px 1px 1px rgb(175, 173, 173);*/
         border-radius: 15px;
         transition: all 200ms;
+    }
+
+
+    @media only screen and (max-width: 599px) {
+        .toggle-button-container {
+            margin-right: 0px;
+            margin-left: 20px;
+
+        }
+
+
     }
 </style>

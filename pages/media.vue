@@ -1,6 +1,5 @@
 <template>
-    <div class="text-container">
-
+    <div class="content media">
 
       <h1 class="name">media</h1>
         <div v-for="item in media" :key="item.id">
@@ -53,6 +52,18 @@
 </script>
 
 <style scoped>
+
+.media {
+    overflow-x: scroll;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    /* max-width: none; */
+    max-width: initial;
+    margin-bottom: 60px;
+}
+
 
 .title {
   font-size: 1.5em;
