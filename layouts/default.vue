@@ -13,16 +13,30 @@
         </ToggleButton>
 
 
-        <Navigation :linkColor="this.linkColor"></Navigation>
+        <Navigation :linkColor="this.linkColor" :navBackgroundColor="this.navBackgroundColor"></Navigation>
 
       </div>
-
 
       <div class="content">
 
           <nuxt />
 
       </div>
+
+      <div class="footer-links">
+        <p style="color: #646464">connect with me</p>
+
+        <!--<a href="https://www.linkedin.com/in/sunilsandhu">linkedin</a>-->
+
+        <a href="mailto:hello@sunilsandhu.com">email</a>
+
+        <a href="https://twitter.com/sunilsandhu">twitter</a>
+
+        <a href="https://instagram.com/sunilsandhu">instagram</a>
+
+        <a href="https://medium.com/@sunilsandhu">medium</a>
+      </div>
+
 
 
     </div>
@@ -55,6 +69,7 @@ export default {
       titleColor: 'black',
       currentPage: '',
       linkColor: '#707070',
+      navBackgroundColor: 'white',
       media: [],
     }
   },
@@ -98,6 +113,9 @@ export default {
           this.linkColor = '#175A5A';
 //          this.toggleButtonColor = '#ACADAD';
           this.toggleButtonColor = '#175A5A';
+          this.navBackgroundColor = 'black';
+
+
           this.toggleButtonBoxShadow = 'initial'
       },
 
@@ -110,6 +128,7 @@ export default {
 //          this.toggleButtonColor = '#ACADAD';
           this.toggleButtonColor = '#ea7e7e';
           this.toggleButtonBoxShadow = '1px 1px 1px #D3D3D3';
+          this.navBackgroundColor = 'white';
       },
 
       isItLate() {
@@ -192,7 +211,7 @@ html {
 .left-side {
   height: 100vh;
   position: relative;
-  width: 60%;
+  width: 70%;
   flex-flow: column;
   display: flex;
   /*align-items: flex-end;*/
@@ -200,7 +219,7 @@ html {
 
 .right-side {
   height: 100vh;
-  width: 40%;
+  width: 30%;
   flex-flow: column;
   display: flex;
   transition: all 500ms;
@@ -223,6 +242,7 @@ html {
   display: flex;
   height: 80px;
   align-items: center;
+  transition: all 300ms;
   /*padding-left: 80px;*/
 }
 
@@ -233,11 +253,40 @@ html {
   font-size: 18px;
 }
 
+a {
+  transition: all 350ms;
+}
 
+a:hover {
+  transition: all 350ms;
+  color: #5099d7;
+   background: -webkit-linear-gradient(#65ff78, #5099d7);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+
+.footer-links {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  margin-left: 100px;
+  /*max-width: 500px;*/
+}
+
+.footer-links a {
+  margin-right: 20px;
+}
+
+.footer-links p {
+  margin-right: 20px;
+}
 
 .big {
   font-size: 1.5em;
-  color: #4B4B4B;
+  /*color: #4B4B4B;*/
 }
 
 a {
@@ -252,7 +301,7 @@ a {
   /*text-orientation: sideways;*/
   /*writing-mode: vertical-rl;*/
   /*transform: rotate(-180deg);*/
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 h1 {
@@ -265,10 +314,19 @@ h1 {
 
 h2 {
   /*opacity: 0;*/
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: 500;
   color: #646464;
   /*animation: fadeIn 0.4s linear 0.7s forwards;*/
+}
+
+
+
+.nuxt-link-exact-active {
+  color: #5099d7;
+  background: -webkit-linear-gradient(#65ff78, #5099d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .tagline {
@@ -296,7 +354,7 @@ h2 {
 
 .text-container {
   padding-right: 60px;
-  max-height: 80vh;
+  max-height: 70vh;
   overflow-x: scroll;
   max-width: 500px;
   /*padding-top: 60px;*/
@@ -413,11 +471,23 @@ h2 {
     padding-left: 50px;
   }
 
+  .footer-links p {
+    display: none;
+  }
+
 }
 
 
 
-@media only screen and (max-width: 499px) {
+@media only screen and (max-width: 599px) {
+
+  .name {
+    font-size: 2.5em;
+  }
+
+  .tagline {
+    font-size: 2em;
+  }
 
   .container {
     flex-wrap: wrap;
@@ -427,15 +497,15 @@ h2 {
     width: 100%;
     flex-flow: column;
     display: flex;
-    height: calc(100vh - 40px);
+    height: 100vh;
     /*align-items: flex-end;*/
   }
 
   .right-side {
-    width: 100%;
-    flex-flow: column;
-    display: flex;
-    height: 40px;
+    /*width: 100%;*/
+    /*flex-flow: column;*/
+    display: none;
+    /*height: 40px;*/
     /*align-items: flex-end;*/
   }
 
@@ -445,14 +515,22 @@ h2 {
 
 
   .text-container {
-    padding: 20px 20px 60px 0px;
+    /*max-height: initial;*/
+    /*margin-top: 52px;*/
+    max-width: initial;
+    margin-top: 20px;
   }
 
   .navigation {
     padding-left: 10px;
     /*background-color: ;*/
-    height: 60px;
-    border-bottom: 1px solid grey;
+    height: 50px;
+    /*border-bottom: 1px solid grey;*/
+    box-shadow: 0px 1px 5px rgba(128, 128, 128, 0.2);
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    /*background-color: white;*/
   }
 
   .navigation a {
@@ -466,6 +544,25 @@ h2 {
 
   .content {
     padding-left: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-links {
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-left: initial;
+    /*justify-content: space-around;*/
+    /*border-top: 1px solid grey;*/
+    box-shadow: -1px -1px 5px 0px rgba(128, 128, 128, 0.2);
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  .footer-links a {
+    /*margin-right: inial;*/
   }
 
 }
