@@ -229,7 +229,7 @@ html {
 }
 
 .content {
-  max-width: 500px;
+  max-width: 700px;
   display: flex;
   flex: 1;
   padding-left: 100px;
@@ -343,15 +343,6 @@ h2 {
   box-shadow: 1px 1px 1px  rgb(23, 90, 90);
   border: 1px solid rgb(23, 90, 90);
   color: rgb(23, 90, 90);
-}
-
-.text-container {
-  padding-right: 60px;
-  /*max-height: 70vh;*/
-  /*overflow-x: scroll;*/
-  max-width: 500px;
-  /*padding-top: 60px;*/
-  /*padding-bottom: 60px;*/
 }
 
 .colored-box {
