@@ -54,7 +54,7 @@
 <style scoped>
 
 .media {
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
     height: auto;
     display: flex;
     justify-content: center;
@@ -85,6 +85,7 @@
 .year {
   color: #553b3b;
   font-size: 0.9em;
+  /*margin-bottom: 15px;*/
 }
 
 </style>

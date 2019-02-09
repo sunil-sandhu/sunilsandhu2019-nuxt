@@ -233,6 +233,7 @@ html {
   display: flex;
   flex: 1;
   padding-left: 100px;
+  padding-right: 100px;
   flex-flow: column;
   justify-content: center;
   height: 100vh;
@@ -347,7 +348,7 @@ h2 {
 .text-container {
   padding-right: 60px;
   /*max-height: 70vh;*/
-  overflow-x: scroll;
+  /*overflow-x: scroll;*/
   max-width: 500px;
   /*padding-top: 60px;*/
   /*padding-bottom: 60px;*/
