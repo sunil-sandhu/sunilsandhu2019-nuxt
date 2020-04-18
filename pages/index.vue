@@ -1,27 +1,23 @@
 <template>
-    <div class="content">
+  <div class="content">
+    <h1 class="name">Sunil Sandhu</h1>
 
-      <h1 class="name">sunil sandhu</h1>
+    <h2 class="tagline">
+      Developer +
+      <br />UX Designer
+    </h2>
 
-      <h2 class="tagline">developer + <br/>ux designer </h2>
-
-      <nuxt-link to="/about" class="button">learn more</nuxt-link>
-
+    <nuxt-link to="/about" class="button">Learn more</nuxt-link>
   </div>
 </template>
 
 <script>
-
-
 export default {
-  components: {
-  },
+  components: {},
 
   props: []
-}
+};
 </script>
 
 <style>
-
-
 </style>
